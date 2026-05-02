@@ -153,3 +153,35 @@ Script harus dijalankan dari dalam direktori Git repository yang valid.
 
 - **`push.sh`** — untuk commit dan push biasa dengan timestamp waktu sekarang
 - **`amend.sh`** — jika ingin commit-commit terlihat tersebar di rentang tanggal Januari 2025 (misalnya untuk keperluan tampilan contribution graph)
+
+---
+
+## Peringatan: Risiko Penggunaan `amend.sh`
+
+> **PERHATIAN:** Manipulasi tanggal commit menggunakan `amend.sh` membawa sejumlah risiko yang perlu dipahami sebelum digunakan.
+
+### Risiko dari GitHub
+
+- **Penghapusan kontribusi dari grafik** — GitHub dapat mendeteksi pola commit yang tidak wajar dan menghapusnya dari contribution graph tanpa pemberitahuan.
+- **Pembatasan atau penangguhan akun** — Penggunaan yang dianggap sebagai manipulasi aktivitas atau penyesatan (misleading behavior) dapat melanggar [GitHub Terms of Service](https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies), yang berpotensi berujung pada pembatasan akun.
+- **Reputasi yang rusak** — Jika diketahui oleh recruiter, kolaborator, atau komunitas open source, riwayat commit yang dimanipulasi dapat merusak kredibilitas dan kepercayaan.
+
+### Risiko Teknis
+
+- **Kerusakan history kolaborasi** — `--force push` yang dilakukan setelah amend akan menimpa riwayat di remote. Pada repo yang digunakan bersama, ini dapat menyebabkan konflik serius bagi kontributor lain.
+- **Kehilangan data** — Force push yang tidak hati-hati dapat menghapus commit orang lain yang belum di-merge.
+
+### Penggunaan yang Aman vs Berisiko
+
+| Penggunaan | Status |
+|---|---|
+| Merapikan commit lokal sebelum push pertama | Aman |
+| Memperbaiki pesan commit yang typo | Aman |
+| Menyesuaikan history di repo pribadi yang belum dipublikasikan | Aman |
+| Memalsukan tanggal untuk menipu grafik kontribusi | Berisiko |
+| Force push ke repo publik / yang sudah dikerjakan bersama | Berisiko |
+| Manipulasi history untuk portofolio atau rekrutmen | Berisiko |
+
+### Rekomendasi
+
+Gunakan `amend.sh` hanya pada **repo pribadi yang tidak digunakan untuk kolaborasi** dan **bukan untuk tujuan menipu** pihak lain. Jika tujuan utamamu adalah membangun portofolio yang kuat, cara terbaik tetaplah berkontribusi secara konsisten dan jujur.
