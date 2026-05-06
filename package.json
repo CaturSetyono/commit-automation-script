@@ -1,6 +1,6 @@
 {
   "name": "commit-automation-script",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Auto install push.sh into project root",
   "main": "install.js",
   "scripts": {
@@ -24,6 +24,7 @@
   "homepage": "https://github.com/CaturSetyono/commit-automation-script#readme",
   "files": [
     "push.sh",
+    "amend.sh",
     "install.js"
   ]
 }
