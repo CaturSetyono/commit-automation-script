@@ -4,11 +4,21 @@ Dua script bash untuk otomatisasi commit dan push Git — setiap file dicommit s
 
 ---
 
+## Instalasi via NPM
+
+Sekarang script ini bisa diinstal melalui NPM! Secara otomatis script `push.sh` dan `amend.sh` akan disalin (di-copy) ke root direktori project kamu. Dengan begitu, kamu bisa memilih mau menggunakan fitur auto commit standar (`push.sh`) atau fitur amend tanggal (`amend.sh`).
+
+```bash
+npm install commit-automation-script
+```
+
+---
+
 ## Script yang Tersedia
 
-| Script | Fungsi |
-|---|---|
-| `push.sh` | Commit + push tiap file dengan timestamp asli |
+| Script     | Fungsi                                                                         |
+| ---------- | ------------------------------------------------------------------------------ |
+| `push.sh`  | Commit + push tiap file dengan timestamp asli                                  |
 | `amend.sh` | Commit + push tiap file, lalu **amend tanggal commit** ke rentang Januari 2025 |
 
 ---
@@ -112,20 +122,20 @@ File ke-14 → commit tanggal 2025-01-01  ← reset
 
 Kedua script mendeteksi tipe commit berdasarkan nama file dan status perubahan:
 
-| Kondisi | Tipe Commit |
-|---|---|
-| File dihapus | `delete` |
-| File `.sol` (Solidity) | `feat` |
-| File mengandung `test` atau `spec` | `test` |
-| File `.md` | `docs` |
-| File `.env`, `.toml`, `.json`, `.yaml`, `.yml` | `chore` |
-| File mengandung `style` atau `.css` | `style` |
-| File mengandung `config` | `chore` |
-| File mengandung `refactor` | `refactor` |
-| File baru ditambahkan (`A` / `??`) | `feat` |
-| File dimodifikasi (`M`) | `refactor` |
-| File di-rename (`R`) | `refactor` |
-| Lainnya | `chore` |
+| Kondisi                                        | Tipe Commit |
+| ---------------------------------------------- | ----------- |
+| File dihapus                                   | `delete`    |
+| File `.sol` (Solidity)                         | `feat`      |
+| File mengandung `test` atau `spec`             | `test`      |
+| File `.md`                                     | `docs`      |
+| File `.env`, `.toml`, `.json`, `.yaml`, `.yml` | `chore`     |
+| File mengandung `style` atau `.css`            | `style`     |
+| File mengandung `config`                       | `chore`     |
+| File mengandung `refactor`                     | `refactor`  |
+| File baru ditambahkan (`A` / `??`)             | `feat`      |
+| File dimodifikasi (`M`)                        | `refactor`  |
+| File di-rename (`R`)                           | `refactor`  |
+| Lainnya                                        | `chore`     |
 
 Format pesan commit yang dihasilkan:
 
@@ -173,14 +183,14 @@ Script harus dijalankan dari dalam direktori Git repository yang valid.
 
 ### Penggunaan yang Aman vs Berisiko
 
-| Penggunaan | Status |
-|---|---|
-| Merapikan commit lokal sebelum push pertama | Aman |
-| Memperbaiki pesan commit yang typo | Aman |
-| Menyesuaikan history di repo pribadi yang belum dipublikasikan | Aman |
-| Memalsukan tanggal untuk menipu grafik kontribusi | Berisiko |
-| Force push ke repo publik / yang sudah dikerjakan bersama | Berisiko |
-| Manipulasi history untuk portofolio atau rekrutmen | Berisiko |
+| Penggunaan                                                     | Status   |
+| -------------------------------------------------------------- | -------- |
+| Merapikan commit lokal sebelum push pertama                    | Aman     |
+| Memperbaiki pesan commit yang typo                             | Aman     |
+| Menyesuaikan history di repo pribadi yang belum dipublikasikan | Aman     |
+| Memalsukan tanggal untuk menipu grafik kontribusi              | Berisiko |
+| Force push ke repo publik / yang sudah dikerjakan bersama      | Berisiko |
+| Manipulasi history untuk portofolio atau rekrutmen             | Berisiko |
 
 ### Rekomendasi
 
