@@ -1,0 +1,29 @@
+{
+  "name": "commit-automation-script",
+  "version": "1.0.1",
+  "description": "Auto install push.sh into project root",
+  "main": "install.js",
+  "scripts": {
+    "postinstall": "node install.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CaturSetyono/commit-automation-script.git"
+  },
+  "keywords": [
+    "git",
+    "push",
+    "automation",
+    "commit"
+  ],
+  "author": "Catur Setyono",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CaturSetyono/commit-automation-script/issues"
+  },
+  "homepage": "https://github.com/CaturSetyono/commit-automation-script#readme",
+  "files": [
+    "push.sh",
+    "install.js"
+  ]
+}
